@@ -1,0 +1,2010 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LaunchFlow — Turn Ideas Into Impactful Projects</title>
+  <meta name="description" content="LaunchFlow is the unified productivity platform for high-velocity teams. Manage projects, automate workflows, collaborate in real time, and monitor sprint progress." />
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="LaunchFlow — Modern Team Productivity & Project Orchestration" />
+  <meta property="og:description" content="Manage projects, automate workflows, and accelerate team velocity in a sleek dark workspace." />
+  <meta property="og:type" content="website" />
+  
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238b5cf6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'/></svg>" />
+</head>
+<body>
+  <!-- Ambient background lighting glows -->
+  <div class="ambient-glow glow-top" aria-hidden="true"></div>
+  <div class="ambient-glow glow-hero-right" aria-hidden="true"></div>
+  <div class="ambient-glow glow-features" aria-hidden="true"></div>
+
+  <!-- A. NAVIGATION -->
+  <header class="site-header" id="header">
+    <div class="container nav-container">
+      <a href="#" class="brand-logo" aria-label="LaunchFlow Home">
+        <div class="logo-icon-box">
+          <svg class="logo-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 19H8L12 12L16 19H22L12 2Z" fill="url(#logo-grad)" />
+            <circle cx="12" cy="7" r="2.5" fill="#ffffff" />
+            <defs>
+              <linearGradient id="logo-grad" x1="2" y1="2" x2="22" y2="19" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#A78BFA" />
+                <stop offset="0.5" stop-color="#8B5CF6" />
+                <stop offset="1" stop-color="#6366F1" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="brand-name">LaunchFlow</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <a href="#features" class="nav-link">Product</a>
+        <a href="#how-it-works" class="nav-link">Solutions</a>
+        <a href="#showcase" class="nav-link">Showcase</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </nav>
+
+      <!-- Desktop Action CTAs & Auth Area -->
+      <div class="nav-actions">
+        <div class="backend-status-pill" id="backendStatusPill" title="Supabase Cloud PostgreSQL Active">
+          <span class="status-indicator-dot"></span>
+          <span id="backendStatusText">Supabase Connected</span>
+        </div>
+        <div class="auth-guest-actions" id="authGuestActions">
+          <button type="button" class="btn-ghost" id="navSignInBtn">Sign In</button>
+          <button type="button" class="btn-primary" id="navSignUpBtn">
+            <span>Get Started Free</span>
+            <i data-lucide="arrow-right" class="icon-inline"></i>
+          </button>
+        </div>
+        <div class="auth-user-profile hidden" id="authUserProfile">
+          <div class="user-avatar-pill">
+            <span class="avatar-circle-sm" id="navUserAvatar">LF</span>
+            <span class="user-display-name" id="navUserName">User</span>
+          </div>
+          <button type="button" class="btn-ghost btn-sm" id="navSignOutBtn" title="Sign out of Supabase">
+            <i data-lucide="log-out" class="icon-inline"></i>
+            <span>Sign Out</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button type="button" class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+        <i data-lucide="menu" id="hamburgerIcon"></i>
+        <i data-lucide="x" id="closeIcon" class="hidden"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-drawer" id="mobileMenu" aria-hidden="true">
+      <div class="mobile-drawer-inner">
+        <nav class="mobile-nav-links" aria-label="Mobile Navigation">
+          <a href="#features" class="mobile-link">Product</a>
+          <a href="#how-it-works" class="mobile-link">Solutions</a>
+          <a href="#showcase" class="mobile-link">Showcase</a>
+          <a href="#pricing" class="mobile-link">Pricing</a>
+          <a href="#faq" class="mobile-link">FAQ</a>
+        </nav>
+        <div class="mobile-actions">
+          <button type="button" class="btn-secondary w-full" id="mobileSignInBtn">Sign In</button>
+          <button type="button" class="btn-primary w-full" id="mobileSignUpBtn">
+            <span>Get Started Free</span>
+            <i data-lucide="arrow-right" class="icon-inline"></i>
+          </button>
+        </div>
+        <div class="mobile-drawer-note">
+          <span class="status-indicator-dot"></span>
+          <span>LaunchFlow 2.4 Enterprise Ready</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- B. HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <!-- Announcement Badge -->
+          <div class="announcement-badge" id="announcementBadge">
+            <span class="badge-sparkle">✨</span>
+            <span class="badge-tag">LaunchFlow 2.4</span>
+            <span class="badge-divider">|</span>
+            <span class="badge-text">Next-Gen Team Orchestration</span>
+            <i data-lucide="chevron-right" class="badge-arrow"></i>
+          </div>
+
+          <!-- Main Hero Headline -->
+          <h1 class="hero-title">
+            Turn Ideas Into <span class="gradient-text">Impactful Projects.</span>
+          </h1>
+
+          <!-- Supporting Copy -->
+          <p class="hero-subtitle">
+            LaunchFlow brings task execution, real-time collaboration, and intelligent sprint telemetry into one hyper-focused workspace. Eliminate context switching and ship on schedule.
+          </p>
+
+          <!-- CTAs -->
+          <div class="hero-cta-group">
+            <button type="button" class="btn-primary btn-lg" id="heroStartFreeBtn">
+              <span>Start Free Trial</span>
+              <i data-lucide="arrow-right" class="icon-inline"></i>
+            </button>
+            <button type="button" class="btn-secondary btn-lg" id="heroWatchDemoBtn">
+              <i data-lucide="play" class="icon-inline icon-play"></i>
+              <span>Watch Demo</span>
+            </button>
+          </div>
+
+          <!-- Trust Statement -->
+          <div class="hero-trust-bar">
+            <div class="trust-item">
+              <i data-lucide="check" class="trust-icon"></i>
+              <span>No credit card required</span>
+            </div>
+            <div class="trust-dot">•</div>
+            <div class="trust-item">
+              <i data-lucide="check" class="trust-icon"></i>
+              <span>14-day free Pro trial</span>
+            </div>
+            <div class="trust-dot">•</div>
+            <div class="trust-item">
+              <i data-lucide="check" class="trust-icon"></i>
+              <span>Cancel anytime</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Product Dashboard Visual (Right side on desktop, stacked on mobile) -->
+        <div class="hero-visual-wrapper">
+          <div class="dashboard-preview-card" id="heroDashboard">
+            <!-- Window header controls -->
+            <div class="dash-window-header">
+              <div class="window-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="window-title-bar">
+                <i data-lucide="lock" class="window-lock-icon"></i>
+                <span class="window-url">app.launchflow.io/workspaces/acme-engineering</span>
+              </div>
+              <div class="window-badge">
+                <span class="status-indicator-dot"></span> Live Sync
+              </div>
+            </div>
+
+            <!-- Dashboard inner content layout -->
+            <div class="dash-interface">
+              <!-- Mini Sidebar -->
+              <aside class="dash-mini-sidebar">
+                <div class="dash-user-avatar" title="Workspace: Acme Flow">
+                  <span>AF</span>
+                </div>
+                <div class="dash-nav-icons">
+                  <div class="dash-icon-btn active" title="Active Sprints"><i data-lucide="layout-dashboard"></i></div>
+                  <div class="dash-icon-btn" title="Tasks Board"><i data-lucide="check-square"></i></div>
+                  <div class="dash-icon-btn" title="Velocity Analytics"><i data-lucide="bar-chart-2"></i></div>
+                  <div class="dash-icon-btn" title="Team Directory"><i data-lucide="users"></i></div>
+                  <div class="dash-icon-btn" title="Integrations"><i data-lucide="cpu"></i></div>
+                </div>
+                <div class="dash-bottom-icons">
+                  <div class="dash-icon-btn" title="Settings"><i data-lucide="settings"></i></div>
+                </div>
+              </aside>
+
+              <!-- Main Dashboard Area -->
+              <div class="dash-main-area">
+                <!-- Top workspace bar -->
+                <div class="dash-top-bar">
+                  <div>
+                    <h3 class="dash-board-title">Sprint 34 • Core Architecture v2</h3>
+                    <p class="dash-board-meta">8 days remaining &nbsp;•&nbsp; 24 of 28 issues resolved (86%)</p>
+                  </div>
+                  <div class="dash-top-actions">
+                    <span class="tag-badge tag-violet">On Track</span>
+                    <button type="button" class="dash-btn-sm" id="heroAddIssueBtn">+ New Task</button>
+                  </div>
+                </div>
+
+                <!-- KPI Metric Strip -->
+                <div class="dash-kpi-grid">
+                  <div class="kpi-mini-card">
+                    <span class="kpi-label">Sprint Velocity</span>
+                    <div class="kpi-value-wrap">
+                      <span class="kpi-num">94.8</span>
+                      <span class="kpi-delta positive">+14%</span>
+                    </div>
+                  </div>
+                  <div class="kpi-mini-card">
+                    <span class="kpi-label">Active Tasks</span>
+                    <div class="kpi-value-wrap">
+                      <span class="kpi-num">18</span>
+                      <span class="kpi-delta neutral">4 blocked</span>
+                    </div>
+                  </div>
+                  <div class="kpi-mini-card">
+                    <span class="kpi-label">Cycle Time</span>
+                    <div class="kpi-value-wrap">
+                      <span class="kpi-num">1.4d</span>
+                      <span class="kpi-delta positive">-22%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Interactive Task List & Live Activity -->
+                <div class="dash-panels-row">
+                  <!-- Task column -->
+                  <div class="dash-tasks-column">
+                    <div class="dash-subhead">
+                      <span>Priority Sprints</span>
+                      <span class="subhead-pill">Interactive</span>
+                    </div>
+                    
+                    <div class="dash-task-item completed" data-task-id="1">
+                      <div class="custom-checkbox checked">
+                        <i data-lucide="check"></i>
+                      </div>
+                      <div class="task-info">
+                        <span class="task-title">Design system token hierarchy</span>
+                        <div class="task-tags">
+                          <span class="tag-pill tag-blue">Design</span>
+                          <span class="task-assignee">Sarah K.</span>
+                        </div>
+                      </div>
+                      <span class="task-status-done">Done</span>
+                    </div>
+
+                    <div class="dash-task-item in-progress" data-task-id="2">
+                      <div class="custom-checkbox">
+                        <i data-lucide="check" class="hidden"></i>
+                      </div>
+                      <div class="task-info">
+                        <span class="task-title">Optimize GraphQL latency &lt; 40ms</span>
+                        <div class="task-tags">
+                          <span class="tag-pill tag-purple">Backend</span>
+                          <span class="task-assignee">Marcus V.</span>
+                        </div>
+                      </div>
+                      <span class="task-progress-pill">In Review</span>
+                    </div>
+
+                    <div class="dash-task-item planned" data-task-id="3">
+                      <div class="custom-checkbox">
+                        <i data-lucide="check" class="hidden"></i>
+                      </div>
+                      <div class="task-info">
+                        <span class="task-title">Webhooks idempotency safeguards</span>
+                        <div class="task-tags">
+                          <span class="tag-pill tag-cyan">Infra</span>
+                          <span class="task-assignee">David L.</span>
+                        </div>
+                      </div>
+                      <span class="task-priority-high">High</span>
+                    </div>
+                  </div>
+
+                  <!-- Mini Chart / Team Pulse -->
+                  <div class="dash-telemetry-column">
+                    <div class="dash-subhead">
+                      <span>Burn-down Real-time</span>
+                      <span class="subhead-pill green">Active</span>
+                    </div>
+                    
+                    <!-- SVG Velocity Graph -->
+                    <div class="mini-chart-container">
+                      <svg class="velocity-svg" viewBox="0 0 200 80" preserveAspectRatio="none">
+                        <defs>
+                          <linearGradient id="chart-glow" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.35" />
+                            <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.0" />
+                          </linearGradient>
+                        </defs>
+                        <!-- Area -->
+                        <path d="M 0 75 Q 40 60, 80 40 T 140 25 T 200 12 L 200 80 L 0 80 Z" fill="url(#chart-glow)"></path>
+                        <!-- Line -->
+                        <path d="M 0 75 Q 40 60, 80 40 T 140 25 T 200 12" fill="none" stroke="#A78BFA" stroke-width="2.5" stroke-linecap="round"></path>
+                        <!-- Data Points -->
+                        <circle cx="80" cy="40" r="3.5" fill="#C4B5FD" stroke="#7C3AED" stroke-width="1.5"></circle>
+                        <circle cx="140" cy="25" r="3.5" fill="#C4B5FD" stroke="#7C3AED" stroke-width="1.5"></circle>
+                        <circle cx="200" cy="12" r="4" fill="#38BDF8" stroke="#1E293B" stroke-width="2"></circle>
+                      </svg>
+                      <div class="chart-legend">
+                        <span>Sprint Day 1</span>
+                        <span class="legend-target">Target 98 pts</span>
+                        <span>Today</span>
+                      </div>
+                    </div>
+
+                    <!-- Pulse member activity -->
+                    <div class="mini-activity-feed">
+                      <div class="activity-feed-item">
+                        <div class="avatar-circle">EK</div>
+                        <div class="activity-text">
+                          <strong>Elena</strong> merged pull request <code>#LF-892</code>
+                          <span class="activity-time">3m ago</span>
+                        </div>
+                      </div>
+                      <div class="activity-feed-item">
+                        <div class="avatar-circle purple">TC</div>
+                        <div class="activity-text">
+                          <strong>Tom C.</strong> moved task to <em>Ready to Deploy</em>
+                          <span class="activity-time">12m ago</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Background decorative glow frame -->
+          <div class="card-glow-reflection" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- C. CUSTOMER STRIP -->
+    <section class="customer-strip-section" aria-label="Sample partner organizations">
+      <div class="container">
+        <div class="strip-header">
+          <span class="strip-eyebrow">DESIGNED FOR HIGH-GROWTH PRODUCT, ENGINEERING &amp; DESIGN TEAMS</span>
+          <span class="demo-tag">Sample Demonstration Wordmarks</span>
+        </div>
+        
+        <div class="brands-grid">
+          <!-- Fictional Sample Brand 1 -->
+          <div class="brand-item" title="Novasphere - Sample Fictional Brand">
+            <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+              <path d="M2 12h20" />
+            </svg>
+            <span class="brand-text">NOVASPHERE</span>
+          </div>
+
+          <!-- Fictional Sample Brand 2 -->
+          <div class="brand-item" title="Vertexia - Sample Fictional Brand">
+            <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2" />
+              <line x1="12" y1="22" x2="12" y2="12" />
+              <polyline points="22 8.5 12 12 2 8.5" />
+            </svg>
+            <span class="brand-text">VERTEXIA</span>
+          </div>
+
+          <!-- Fictional Sample Brand 3 -->
+          <div class="brand-item" title="Kinetix Systems - Sample Fictional Brand">
+            <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+            </svg>
+            <span class="brand-text">KINETIX LABS</span>
+          </div>
+
+          <!-- Fictional Sample Brand 4 -->
+          <div class="brand-item" title="PulsePoint - Sample Fictional Brand">
+            <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+            </svg>
+            <span class="brand-text">PULSEPOINT</span>
+          </div>
+
+          <!-- Fictional Sample Brand 5 -->
+          <div class="brand-item" title="Aetheric Cloud - Sample Fictional Brand">
+            <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
+            </svg>
+            <span class="brand-text">AETHERIC</span>
+          </div>
+
+          <!-- Fictional Sample Brand 6 -->
+          <div class="brand-item" title="Hyperion Data - Sample Fictional Brand">
+            <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" />
+              <line x1="8" y1="21" x2="16" y2="21" />
+              <line x1="12" y1="17" x2="12" y2="21" />
+            </svg>
+            <span class="brand-text">HYPERION</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- D. FEATURES (4 DISTINCT PRESENTATIONS) -->
+    <section class="features-section" id="features">
+      <div class="container">
+        <!-- Section Heading -->
+        <div class="section-header text-center">
+          <div class="section-eyebrow">
+            <i data-lucide="layers" class="icon-inline"></i>
+            <span>CAPABILITIES</span>
+          </div>
+          <h2 class="section-title">Engineered to accelerate your workflow</h2>
+          <p class="section-subtitle">
+            Every feature in LaunchFlow is designed with precision: minimal friction, clear data signals, and unified collaboration.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Feature 1: Smart Task Management -->
+          <div class="feature-card feature-card-wide" id="feat-tasks">
+            <div class="feature-card-content">
+              <div class="feature-icon-badge violet">
+                <i data-lucide="check-circle-2"></i>
+              </div>
+              <h3 class="feature-heading">Smart Task Management</h3>
+              <p class="feature-description">
+                Organize deliverables with flexible views: Kanban boards, nested lists, and timeline Gantt schedules. Automatically prioritize blockers with intelligent dependency graphs.
+              </p>
+              <ul class="feature-checklist">
+                <li><i data-lucide="check" class="check-bullet"></i> Multi-state workflows (Todo, In Review, QA, Deployed)</li>
+                <li><i data-lucide="check" class="check-bullet"></i> Subtask breakdown with auto-rollup percentage</li>
+                <li><i data-lucide="check" class="check-bullet"></i> Keyboard shortcuts for lightning-fast edits (<code>Ctrl + K</code>)</li>
+              </ul>
+            </div>
+            
+            <div class="feature-card-graphic graphic-kanban">
+              <!-- Visual Mock of Kanban Board -->
+              <div class="mock-kanban-board">
+                <div class="kanban-col">
+                  <div class="kanban-col-header">
+                    <span>IN PROGRESS</span>
+                    <span class="count-tag">3</span>
+                  </div>
+                  <div class="mock-card card-purple-border">
+                    <div class="card-meta"><span class="chip-purple">API V3</span><span class="priority-p1">P1</span></div>
+                    <div class="card-text">Payload cache optimization</div>
+                    <div class="card-foot">
+                      <div class="mini-avatar-group">
+                        <span class="m-av">MK</span>
+                        <span class="m-av blue">SR</span>
+                      </div>
+                      <span class="card-date">Tomorrow</span>
+                    </div>
+                  </div>
+                  <div class="mock-card">
+                    <div class="card-meta"><span class="chip-cyan">UI/UX</span><span class="priority-p2">P2</span></div>
+                    <div class="card-text">Design dark system inputs</div>
+                    <div class="card-foot">
+                      <span class="m-av violet">JD</span>
+                      <span class="card-date">Oct 24</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="kanban-col">
+                  <div class="kanban-col-header">
+                    <span>READY FOR QA</span>
+                    <span class="count-tag green">2</span>
+                  </div>
+                  <div class="mock-card card-glow-active">
+                    <div class="card-meta"><span class="chip-emerald">Core</span><span class="priority-p0">Urgent</span></div>
+                    <div class="card-text">SSO SAML 2.0 Auth handshake</div>
+                    <div class="progress-bar-mini">
+                      <div class="prog-fill" style="width: 90%;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature 2: Seamless Collaboration -->
+          <div class="feature-card feature-card-tall" id="feat-collab">
+            <div class="feature-icon-badge blue">
+              <i data-lucide="users-2"></i>
+            </div>
+            <h3 class="feature-heading">Seamless Collaboration</h3>
+            <p class="feature-description">
+              Collaborate without stale tabs. Live multiplayer cursors, synchronous markdown specs, and contextual comment threads keep your distributed team aligned.
+            </p>
+            
+            <!-- Graphic: Live Multiplayer Cursors & Thread -->
+            <div class="feature-card-graphic graphic-collab">
+              <div class="mock-editor-surface">
+                <div class="editor-header">
+                  <span class="file-name">spec-auth-handshake.md</span>
+                  <div class="live-active-bubbles">
+                    <span class="bubble-user green" title="Elena T. active">ET</span>
+                    <span class="bubble-user purple" title="Alex R. typing">AR</span>
+                    <span class="bubble-more">+4</span>
+                  </div>
+                </div>
+                <div class="editor-body">
+                  <p class="code-line"><span class="syntax-kw">### Scope:</span> OAuth2 Token Refresh Flow</p>
+                  <p class="code-line relative">
+                    Ensuring zero session disruption on background rotation.
+                    <!-- Live Cursor 1 -->
+                    <span class="multiplayer-cursor cursor-violet" style="left: 45%; top: 4px;">
+                      <span class="cursor-pointer"></span>
+                      <span class="cursor-label">Alex (Tech Lead)</span>
+                    </span>
+                  </p>
+                  <!-- Contextual Comment Popover -->
+                  <div class="mock-comment-bubble">
+                    <div class="comment-author">
+                      <span class="m-av blue">ET</span>
+                      <strong>Elena:</strong>
+                      <span class="comment-time">Just now</span>
+                    </div>
+                    <p class="comment-msg">Confirmed test coverage is at 98.4% on staging!</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature 3: Powerful Analytics -->
+          <div class="feature-card feature-card-tall" id="feat-analytics">
+            <div class="feature-icon-badge cyan">
+              <i data-lucide="line-chart"></i>
+            </div>
+            <h3 class="feature-heading">Powerful Analytics</h3>
+            <p class="feature-description">
+              Transform raw activity into actionable project intelligence. Monitor sprint burndowns, cycle time distributions, and team allocation without manual spreadsheet exports.
+            </p>
+            
+            <!-- Graphic: Analytics Breakdown -->
+            <div class="feature-card-graphic graphic-metrics">
+              <div class="mock-stat-box">
+                <div class="stat-top">
+                  <span class="stat-title">Velocity Consistency</span>
+                  <span class="stat-badge-green">+18.2%</span>
+                </div>
+                <div class="stat-bars-chart">
+                  <div class="bar-col" style="--height: 45%;"><span>W1</span></div>
+                  <div class="bar-col" style="--height: 60%;"><span>W2</span></div>
+                  <div class="bar-col" style="--height: 75%;"><span>W3</span></div>
+                  <div class="bar-col active" style="--height: 92%;"><span>W4</span></div>
+                  <div class="bar-col" style="--height: 84%;"><span>W5</span></div>
+                </div>
+                <div class="stat-footer-metrics">
+                  <div>
+                    <span class="sub-label">Cycle Time</span>
+                    <strong>1.2 days</strong>
+                  </div>
+                  <div>
+                    <span class="sub-label">Completion</span>
+                    <strong class="text-green">97.6%</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature 4: Secure Workspace -->
+          <div class="feature-card feature-card-wide" id="feat-security">
+            <div class="feature-card-content">
+              <div class="feature-icon-badge emerald">
+                <i data-lucide="shield-check"></i>
+              </div>
+              <h3 class="feature-heading">Secure Workspace</h3>
+              <p class="feature-description">
+                Security built directly into the core framework. Granular Role-Based Access Control (RBAC), end-to-end encryption in transit and at rest, and automated audit logging.
+              </p>
+              <div class="security-badges-row">
+                <div class="sec-badge">
+                  <i data-lucide="lock" class="sec-icon"></i>
+                  <span>AES-256 Bit Encryption</span>
+                </div>
+                <div class="sec-badge">
+                  <i data-lucide="key" class="sec-icon"></i>
+                  <span>SSO &amp; SAML 2.0 Integration</span>
+                </div>
+                <div class="sec-badge">
+                  <i data-lucide="file-check-2" class="sec-icon"></i>
+                  <span>Audit Logs &amp; Compliance Ready</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="feature-card-graphic graphic-security">
+              <div class="mock-security-terminal">
+                <div class="terminal-bar">
+                  <span class="term-dot"></span>
+                  <span class="term-title">Security &amp; Permissions Matrix</span>
+                </div>
+                <div class="terminal-body">
+                  <div class="term-row">
+                    <span class="term-role">Admin</span>
+                    <span class="term-access full">Full Workspace Access</span>
+                    <i data-lucide="check" class="term-check"></i>
+                  </div>
+                  <div class="term-row">
+                    <span class="term-role">Developer</span>
+                    <span class="term-access">Read / Write / Deploy</span>
+                    <i data-lucide="check" class="term-check"></i>
+                  </div>
+                  <div class="term-row">
+                    <span class="term-role">Guest / Client</span>
+                    <span class="term-access restricted">Read Only &amp; Comment</span>
+                    <i data-lucide="check" class="term-check"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- E. HOW IT WORKS -->
+    <section class="how-it-works-section" id="how-it-works">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-eyebrow">
+            <i data-lucide="compass" class="icon-inline"></i>
+            <span>SIMPLE ONBOARDING</span>
+          </div>
+          <h2 class="section-title">Get up and running in minutes</h2>
+          <p class="section-subtitle">
+            Three straightforward steps to transform project planning and team velocity without painful migration overhead.
+          </p>
+        </div>
+
+        <div class="steps-container">
+          <!-- Step 1 -->
+          <div class="step-card active" data-step="1">
+            <div class="step-badge-wrap">
+              <div class="step-number">01</div>
+              <div class="step-connector-line"></div>
+            </div>
+            <div class="step-body">
+              <div class="step-icon-box">
+                <i data-lucide="building-2"></i>
+              </div>
+              <h3 class="step-heading">Create your workspace</h3>
+              <p class="step-text">
+                Sign up in 30 seconds. Choose your workflow blueprint (Agile Scrum, Kanban, or Product Roadmap) and invite your team members with one link.
+              </p>
+              <div class="step-feature-tag">
+                <i data-lucide="check-circle" class="tag-icon"></i>
+                <span>One-click GitHub &amp; Slack integration</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-card" data-step="2">
+            <div class="step-badge-wrap">
+              <div class="step-number">02</div>
+              <div class="step-connector-line"></div>
+            </div>
+            <div class="step-body">
+              <div class="step-icon-box">
+                <i data-lucide="kanban-square"></i>
+              </div>
+              <h3 class="step-heading">Plan and organize projects</h3>
+              <p class="step-text">
+                Break major deliverables into manageable milestones. Set estimates, assign owners, link dependencies, and establish sprint goals with zero guesswork.
+              </p>
+              <div class="step-feature-tag">
+                <i data-lucide="check-circle" class="tag-icon"></i>
+                <span>Intelligent sprint capacity calculator</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-card" data-step="3">
+            <div class="step-badge-wrap">
+              <div class="step-number">03</div>
+            </div>
+            <div class="step-body">
+              <div class="step-icon-box">
+                <i data-lucide="trending-up"></i>
+              </div>
+              <h3 class="step-heading">Collaborate and track progress</h3>
+              <p class="step-text">
+                Ship features with real-time visibility. Review automated standup digests, track blocker resolution rates, and celebrate milestones together.
+              </p>
+              <div class="step-feature-tag">
+                <i data-lucide="check-circle" class="tag-icon"></i>
+                <span>Automated weekly executive summaries</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive interactive onboarding callout -->
+        <div class="how-it-works-action">
+          <button type="button" class="btn-primary" id="howItWorksCta">
+            <span>Explore The Workspace Setup</span>
+            <i data-lucide="arrow-right" class="icon-inline"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- F. PRODUCT SHOWCASE -->
+    <section class="showcase-section" id="showcase">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-eyebrow">
+            <i data-lucide="monitor" class="icon-inline"></i>
+            <span>PRODUCT SHOWCASE</span>
+          </div>
+          <h2 class="section-title">A complete command center for your projects</h2>
+          <p class="section-subtitle">
+            Explore the live demonstration environment below. Switch views, check tasks, and experience the interface firsthand.
+          </p>
+          <div class="demo-disclaimer-pill">
+            <i data-lucide="info" class="disclaimer-icon"></i>
+            <span>Interactive Demo View • All metrics and figures are demonstration sample data</span>
+          </div>
+        </div>
+
+        <!-- Comprehensive Dashboard Showcase Container -->
+        <div class="showcase-board-wrapper">
+          <!-- Showcase Nav Tabs -->
+          <div class="showcase-tab-bar" role="tablist">
+            <button class="showcase-tab active" role="tab" aria-selected="true" data-tab="overview">
+              <i data-lucide="layout-grid"></i>
+              <span>Sprint Overview</span>
+            </button>
+            <button class="showcase-tab" role="tab" aria-selected="false" data-tab="tasks">
+              <i data-lucide="check-square"></i>
+              <span>Task Board</span>
+            </button>
+            <button class="showcase-tab" role="tab" aria-selected="false" data-tab="analytics">
+              <i data-lucide="bar-chart-3"></i>
+              <span>Telemetry &amp; Velocity</span>
+            </button>
+            <button class="showcase-tab" role="tab" aria-selected="false" data-tab="team">
+              <i data-lucide="users"></i>
+              <span>Team Activity</span>
+            </button>
+          </div>
+
+          <!-- Showcase Main App Frame -->
+          <div class="showcase-frame">
+            <!-- Frame Top Bar -->
+            <div class="frame-top-bar">
+              <div class="frame-search">
+                <i data-lucide="search" class="search-icon"></i>
+                <input type="text" placeholder="Search tasks, sprints, epics, teammates... (Demo search)" id="showcaseSearch" aria-label="Demo search" />
+                <kbd class="kbd-badge">⌘K</kbd>
+              </div>
+              <div class="frame-user-bar">
+                <button type="button" class="btn-icon" title="Notifications (Demo)">
+                  <i data-lucide="bell"></i>
+                  <span class="notification-dot"></span>
+                </button>
+                <div class="user-profile-pill">
+                  <div class="user-avatar-tiny">NK</div>
+                  <span class="user-name-label">Alex Rivera (Lead)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab Content 1: Overview -->
+            <div class="tab-pane active" id="pane-overview" role="tabpanel">
+              <!-- Stats Row -->
+              <div class="showcase-stats-row">
+                <div class="stat-card">
+                  <div class="stat-card-header">
+                    <span class="stat-name">Active Sprint Issues</span>
+                    <i data-lucide="activity" class="stat-icon-violet"></i>
+                  </div>
+                  <div class="stat-num-row">
+                    <span class="stat-big-num">38</span>
+                    <span class="trend-badge positive"><i data-lucide="arrow-up-right"></i> +12%</span>
+                  </div>
+                  <div class="progress-bar-wrap">
+                    <div class="progress-fill" style="width: 78%;"></div>
+                  </div>
+                  <span class="stat-sub">30 of 38 completed (78%)</span>
+                </div>
+
+                <div class="stat-card">
+                  <div class="stat-card-header">
+                    <span class="stat-name">Team Sprint Velocity</span>
+                    <i data-lucide="zap" class="stat-icon-violet"></i>
+                  </div>
+                  <div class="stat-num-row">
+                    <span class="stat-big-num">112 pts</span>
+                    <span class="trend-badge positive"><i data-lucide="arrow-up-right"></i> +8.4%</span>
+                  </div>
+                  <div class="progress-bar-wrap">
+                    <div class="progress-fill fill-blue" style="width: 86%;"></div>
+                  </div>
+                  <span class="stat-sub">Goal: 105 pts (+7 pts surplus)</span>
+                </div>
+
+                <div class="stat-card">
+                  <div class="stat-card-header">
+                    <span class="stat-name">Average PR Lead Time</span>
+                    <i data-lucide="clock" class="stat-icon-violet"></i>
+                  </div>
+                  <div class="stat-num-row">
+                    <span class="stat-big-num">3.8 hrs</span>
+                    <span class="trend-badge positive"><i data-lucide="arrow-down-right"></i> -42m</span>
+                  </div>
+                  <div class="progress-bar-wrap">
+                    <div class="progress-fill fill-emerald" style="width: 92%;"></div>
+                  </div>
+                  <span class="stat-sub">Top 5% among engineering teams</span>
+                </div>
+
+                <div class="stat-card">
+                  <div class="stat-card-header">
+                    <span class="stat-name">Team Workload Balance</span>
+                    <i data-lucide="smile" class="stat-icon-violet"></i>
+                  </div>
+                  <div class="stat-num-row">
+                    <span class="stat-big-num">Healthy</span>
+                    <span class="trend-badge neutral">Balanced</span>
+                  </div>
+                  <div class="progress-bar-wrap">
+                    <div class="progress-fill fill-purple" style="width: 74%;"></div>
+                  </div>
+                  <span class="stat-sub">8 active contributors, 0 overloaded</span>
+                </div>
+              </div>
+
+              <!-- Content Split: Task Board + Activity -->
+              <div class="showcase-content-grid">
+                <!-- Task Board Preview in Overview -->
+                <div class="panel-box">
+                  <div class="panel-header">
+                    <div>
+                      <h4 class="panel-title">Current Sprint Tasks</h4>
+                      <p class="panel-desc">Interactive filterable demonstration list</p>
+                    </div>
+                    <div class="task-filter-group" id="demoTaskFilters">
+                      <button class="filter-btn active" data-filter="all">All</button>
+                      <button class="filter-btn" data-filter="in-progress">In Progress</button>
+                      <button class="filter-btn" data-filter="completed">Done</button>
+                    </div>
+                  </div>
+
+                  <div class="demo-tasks-container" id="interactiveTaskList">
+                    <!-- Task item 1 -->
+                    <div class="demo-task-row" data-status="completed">
+                      <div class="task-checkbox-btn checked" role="checkbox" aria-checked="true" tabindex="0">
+                        <i data-lucide="check"></i>
+                      </div>
+                      <div class="task-main">
+                        <span class="task-name">Set up multi-region Redis cluster failover</span>
+                        <div class="task-meta-chips">
+                          <span class="chip-badge chip-infra">Infrastructure</span>
+                          <span class="chip-sub">LF-410</span>
+                        </div>
+                      </div>
+                      <div class="task-assignee-avatar" title="Marcus Vance">MV</div>
+                      <span class="status-pill-done">Completed</span>
+                    </div>
+
+                    <!-- Task item 2 -->
+                    <div class="demo-task-row" data-status="in-progress">
+                      <div class="task-checkbox-btn" role="checkbox" aria-checked="false" tabindex="0">
+                        <i data-lucide="check" class="hidden"></i>
+                      </div>
+                      <div class="task-main">
+                        <span class="task-name">Implement real-time collaboration canvas with CRDTs</span>
+                        <div class="task-meta-chips">
+                          <span class="chip-badge chip-frontend">Frontend</span>
+                          <span class="chip-sub">LF-412</span>
+                        </div>
+                      </div>
+                      <div class="task-assignee-avatar purple" title="Sarah Chen">SC</div>
+                      <span class="status-pill-progress">In Review</span>
+                    </div>
+
+                    <!-- Task item 3 -->
+                    <div class="demo-task-row" data-status="in-progress">
+                      <div class="task-checkbox-btn" role="checkbox" aria-checked="false" tabindex="0">
+                        <i data-lucide="check" class="hidden"></i>
+                      </div>
+                      <div class="task-main">
+                        <span class="task-name">Audit SOC-2 Type II access controls and encryption tokens</span>
+                        <div class="task-meta-chips">
+                          <span class="chip-badge chip-security">Security</span>
+                          <span class="chip-sub">LF-415</span>
+                        </div>
+                      </div>
+                      <div class="task-assignee-avatar cyan" title="David Thorne">DT</div>
+                      <span class="status-pill-progress">In Progress</span>
+                    </div>
+
+                    <!-- Task item 4 -->
+                    <div class="demo-task-row" data-status="completed">
+                      <div class="task-checkbox-btn checked" role="checkbox" aria-checked="true" tabindex="0">
+                        <i data-lucide="check"></i>
+                      </div>
+                      <div class="task-main">
+                        <span class="task-name">Refactor dashboard typography and fluid spacing tokens</span>
+                        <div class="task-meta-chips">
+                          <span class="chip-badge chip-design">Design System</span>
+                          <span class="chip-sub">LF-418</span>
+                        </div>
+                      </div>
+                      <div class="task-assignee-avatar emerald" title="Elena Rostova">ER</div>
+                      <span class="status-pill-done">Completed</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Right Side: Live Team Activity Feed -->
+                <div class="panel-box">
+                  <div class="panel-header">
+                    <div>
+                      <h4 class="panel-title">Live Team Activity</h4>
+                      <p class="panel-desc">Real-time team orchestration feed</p>
+                    </div>
+                    <span class="live-pulse-badge">
+                      <span class="pulse-ring"></span>
+                      <span>Real-time</span>
+                    </span>
+                  </div>
+
+                  <div class="activity-timeline">
+                    <div class="activity-entry">
+                      <div class="entry-avatar">SC</div>
+                      <div class="entry-content">
+                        <p class="entry-line"><strong>Sarah Chen</strong> opened PR <code class="code-pr">#LF-894</code>: <em>CRDT document sync</em></p>
+                        <span class="entry-time">4 minutes ago</span>
+                      </div>
+                    </div>
+
+                    <div class="activity-entry">
+                      <div class="entry-avatar purple">MV</div>
+                      <div class="entry-content">
+                        <p class="entry-line"><strong>Marcus Vance</strong> verified automated benchmarks in <span class="text-violet">#staging-cluster</span></p>
+                        <span class="entry-time">19 minutes ago</span>
+                      </div>
+                    </div>
+
+                    <div class="activity-entry">
+                      <div class="entry-avatar emerald">ER</div>
+                      <div class="entry-content">
+                        <p class="entry-line"><strong>Elena Rostova</strong> approved design review for <strong>LaunchFlow 2.4</strong></p>
+                        <span class="entry-time">42 minutes ago</span>
+                      </div>
+                    </div>
+
+                    <div class="activity-entry">
+                      <div class="entry-avatar cyan">DT</div>
+                      <div class="entry-content">
+                        <p class="entry-line"><strong>David Thorne</strong> closed security issue <code class="code-pr">#LF-401</code></p>
+                        <span class="entry-time">1 hour ago</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Quick sprint progress callout -->
+                  <div class="sprint-progress-summary">
+                    <div class="summary-top">
+                      <span>Sprint Goal: Complete Architecture V2</span>
+                      <strong class="text-violet">86%</strong>
+                    </div>
+                    <div class="progress-bar-wrap">
+                      <div class="progress-fill fill-gradient" style="width: 86%;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab Content 2: Task Board -->
+            <div class="tab-pane" id="pane-tasks" role="tabpanel">
+              <div class="kanban-fullscreen-demo">
+                <div class="kanban-lane">
+                  <div class="lane-header">
+                    <span class="lane-title">Backlog</span>
+                    <span class="lane-count">4</span>
+                  </div>
+                  <div class="lane-cards">
+                    <div class="kanban-item">
+                      <span class="tag-pill tag-blue">Feature</span>
+                      <p class="k-title">Figma plugin two-way sync for design specs</p>
+                      <div class="k-meta"><span>Estimate: 5 pts</span><span class="m-av">SC</span></div>
+                    </div>
+                    <div class="kanban-item">
+                      <span class="tag-pill tag-purple">Optimization</span>
+                      <p class="k-title">WASM SQLite query accelerator for offline cache</p>
+                      <div class="k-meta"><span>Estimate: 8 pts</span><span class="m-av cyan">DT</span></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="kanban-lane">
+                  <div class="lane-header">
+                    <span class="lane-title">In Progress</span>
+                    <span class="lane-count">3</span>
+                  </div>
+                  <div class="lane-cards">
+                    <div class="kanban-item active-border">
+                      <span class="tag-pill tag-cyan">API</span>
+                      <p class="k-title">GraphQL subscription load testing (50k active conns)</p>
+                      <div class="k-meta"><span>Estimate: 3 pts</span><span class="m-av purple">MV</span></div>
+                    </div>
+                    <div class="kanban-item">
+                      <span class="tag-pill tag-emerald">Security</span>
+                      <p class="k-title">OAuth2 PKCE flow for desktop helper app</p>
+                      <div class="k-meta"><span>Estimate: 5 pts</span><span class="m-av">ER</span></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="kanban-lane">
+                  <div class="lane-header">
+                    <span class="lane-title">Review &amp; QA</span>
+                    <span class="lane-count">2</span>
+                  </div>
+                  <div class="lane-cards">
+                    <div class="kanban-item">
+                      <span class="tag-pill tag-blue">Frontend</span>
+                      <p class="k-title">Keyboard navigation accessible trap for modal drawers</p>
+                      <div class="k-meta"><span>QA Passed</span><span class="m-av blue">JD</span></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="kanban-lane">
+                  <div class="lane-header">
+                    <span class="lane-title">Done &amp; Deployed</span>
+                    <span class="lane-count green">14</span>
+                  </div>
+                  <div class="lane-cards">
+                    <div class="kanban-item completed-item">
+                      <span class="tag-pill tag-emerald">Delivered</span>
+                      <p class="k-title">LaunchFlow 2.4 core orchestration engine release</p>
+                      <div class="k-meta"><span>Merged</span><span class="m-av green">TEAM</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab Content 3: Analytics -->
+            <div class="tab-pane" id="pane-analytics" role="tabpanel">
+              <div class="analytics-showcase-view">
+                <div class="chart-big-card">
+                  <div class="chart-top-header">
+                    <div>
+                      <h4 class="chart-main-title">Sprint Burndown &amp; Cumulative Flow</h4>
+                      <p class="chart-sub-title">Actual velocity tracking vs planned theoretical trajectory</p>
+                    </div>
+                    <div class="chart-toggles">
+                      <span class="legend-chip violet">Actual Burndown</span>
+                      <span class="legend-chip dotted">Ideal Trajectory</span>
+                    </div>
+                  </div>
+
+                  <div class="big-chart-svg-container">
+                    <svg class="big-svg" viewBox="0 0 700 240" preserveAspectRatio="none">
+                      <defs>
+                        <linearGradient id="big-chart-grad" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.4" />
+                          <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.0" />
+                        </linearGradient>
+                      </defs>
+                      <!-- Grid lines -->
+                      <line x1="0" y1="40" x2="700" y2="40" stroke="rgba(255,255,255,0.05)" stroke-dasharray="4" />
+                      <line x1="0" y1="100" x2="700" y2="100" stroke="rgba(255,255,255,0.05)" stroke-dasharray="4" />
+                      <line x1="0" y1="160" x2="700" y2="160" stroke="rgba(255,255,255,0.05)" stroke-dasharray="4" />
+                      
+                      <!-- Dotted ideal line -->
+                      <line x1="50" y1="30" x2="650" y2="210" stroke="#64748B" stroke-width="2" stroke-dasharray="6 6" />
+
+                      <!-- Shaded gradient area under actual -->
+                      <path d="M 50 30 Q 150 45, 230 85 T 380 120 T 520 170 T 650 200 L 650 240 L 50 240 Z" fill="url(#big-chart-grad)" />
+
+                      <!-- Actual curve line -->
+                      <path d="M 50 30 Q 150 45, 230 85 T 380 120 T 520 170 T 650 200" fill="none" stroke="#A78BFA" stroke-width="3" stroke-linecap="round" />
+
+                      <!-- Nodes -->
+                      <circle cx="50" cy="30" r="5" fill="#8B5CF6" stroke="#FFFFFF" stroke-width="2" />
+                      <circle cx="230" cy="85" r="5" fill="#8B5CF6" stroke="#FFFFFF" stroke-width="2" />
+                      <circle cx="380" cy="120" r="5" fill="#8B5CF6" stroke="#FFFFFF" stroke-width="2" />
+                      <circle cx="520" cy="170" r="5" fill="#8B5CF6" stroke="#FFFFFF" stroke-width="2" />
+                      <circle cx="650" cy="200" r="6" fill="#38BDF8" stroke="#FFFFFF" stroke-width="2" />
+                    </svg>
+                  </div>
+                  
+                  <div class="chart-timeline-labels">
+                    <span>Day 1 (Sprint Kickoff)</span>
+                    <span>Day 4</span>
+                    <span>Day 7 (Mid-Sprint)</span>
+                    <span>Day 10</span>
+                    <span>Day 14 (Release Target)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab Content 4: Team Activity -->
+            <div class="tab-pane" id="pane-team" role="tabpanel">
+              <div class="team-showcase-view">
+                <div class="team-member-grid">
+                  <div class="team-person-card">
+                    <div class="person-avatar-wrap">
+                      <div class="avatar-lg purple">AR</div>
+                      <span class="online-indicator"></span>
+                    </div>
+                    <div class="person-details">
+                      <h4>Alex Rivera</h4>
+                      <p class="role-title">Lead Product Architect</p>
+                      <div class="person-stat-row">
+                        <span>Tasks: <strong>6 In Progress</strong></span>
+                        <span>Velocity: <strong>24 pts</strong></span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="team-person-card">
+                    <div class="person-avatar-wrap">
+                      <div class="avatar-lg cyan">SC</div>
+                      <span class="online-indicator"></span>
+                    </div>
+                    <div class="person-details">
+                      <h4>Sarah Chen</h4>
+                      <p class="role-title">Senior Frontend Engineer</p>
+                      <div class="person-stat-row">
+                        <span>Tasks: <strong>4 In Review</strong></span>
+                        <span>Velocity: <strong>32 pts</strong></span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="team-person-card">
+                    <div class="person-avatar-wrap">
+                      <div class="avatar-lg emerald">MV</div>
+                      <span class="online-indicator"></span>
+                    </div>
+                    <div class="person-details">
+                      <h4>Marcus Vance</h4>
+                      <p class="role-title">Distributed Systems Lead</p>
+                      <div class="person-stat-row">
+                        <span>Tasks: <strong>5 Resolved</strong></span>
+                        <span>Velocity: <strong>28 pts</strong></span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="team-person-card">
+                    <div class="person-avatar-wrap">
+                      <div class="avatar-lg blue">ER</div>
+                      <span class="online-indicator"></span>
+                    </div>
+                    <div class="person-details">
+                      <h4>Elena Rostova</h4>
+                      <p class="role-title">Principal Design Systems</p>
+                      <div class="person-stat-row">
+                        <span>Tasks: <strong>3 Done</strong></span>
+                        <span>Velocity: <strong>22 pts</strong></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- G. PRICING -->
+    <section class="pricing-section" id="pricing">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-eyebrow">
+            <i data-lucide="tag" class="icon-inline"></i>
+            <span>TRANSPARENT PLANS</span>
+          </div>
+          <h2 class="section-title">Predictable plans for teams of every scale</h2>
+          <p class="section-subtitle">
+            Start with our generous free plan, or upgrade to Pro for enterprise-grade agility and unlimited telemetry.
+          </p>
+
+          <!-- Monthly / Annual Toggle -->
+          <div class="billing-toggle-container">
+            <span class="toggle-label" id="labelMonthly">Billed Monthly</span>
+            <button type="button" class="billing-switch" id="billingSwitch" role="switch" aria-checked="false" aria-label="Toggle annual billing for a discount">
+              <span class="switch-handle"></span>
+            </button>
+            <span class="toggle-label" id="labelAnnual">
+              Billed Annually
+              <span class="discount-badge">Save 20%</span>
+            </span>
+          </div>
+          <div class="demo-pricing-note">
+            <span>*Demonstration sample pricing for product evaluation</span>
+          </div>
+        </div>
+
+        <!-- Pricing Cards Grid -->
+        <div class="pricing-cards-grid">
+          <!-- Tier 1: Starter -->
+          <div class="pricing-card" id="pricing-starter">
+            <div class="tier-header">
+              <h3 class="tier-name">Starter</h3>
+              <p class="tier-desc">Essential project organization for individual creators and small experimental teams.</p>
+            </div>
+
+            <div class="tier-price-box">
+              <div class="price-amount-wrap">
+                <span class="price-symbol">$</span>
+                <span class="price-val">0</span>
+                <span class="price-period">/ month</span>
+              </div>
+              <p class="price-subtext">Free forever for up to 5 members</p>
+            </div>
+
+            <button type="button" class="btn-secondary w-full" id="starterCtaBtn">
+              <span>Get Started Free</span>
+            </button>
+
+            <div class="tier-features">
+              <div class="features-label">WHAT'S INCLUDED:</div>
+              <ul class="tier-checklist">
+                <li><i data-lucide="check" class="check-icon"></i> Up to 5 team members</li>
+                <li><i data-lucide="check" class="check-icon"></i> 3 active project workspaces</li>
+                <li><i data-lucide="check" class="check-icon"></i> Standard Kanban and list views</li>
+                <li><i data-lucide="check" class="check-icon"></i> 14-day activity history</li>
+                <li><i data-lucide="check" class="check-icon"></i> Community support &amp; docs</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Tier 2: Pro (Highlighted) -->
+          <div class="pricing-card popular" id="pricing-pro">
+            <div class="popular-ribbon">
+              <i data-lucide="sparkles" class="icon-inline"></i>
+              <span>MOST POPULAR CHOICE</span>
+            </div>
+
+            <div class="tier-header">
+              <h3 class="tier-name">Pro</h3>
+              <p class="tier-desc">High-velocity orchestration for growing product engineering teams shipping weekly.</p>
+            </div>
+
+            <div class="tier-price-box">
+              <div class="price-amount-wrap">
+                <span class="price-symbol">$</span>
+                <span class="price-val" id="proPriceVal">12</span>
+                <span class="price-period" id="proPricePeriod">/ user / mo</span>
+              </div>
+              <p class="price-subtext" id="proPriceSubtext">Billed monthly • Cancel anytime</p>
+            </div>
+
+            <button type="button" class="btn-primary w-full" id="proCtaBtn">
+              <span>Start 14-Day Free Trial</span>
+              <i data-lucide="arrow-right" class="icon-inline"></i>
+            </button>
+
+            <div class="tier-features">
+              <div class="features-label">EVERYTHING IN STARTER, PLUS:</div>
+              <ul class="tier-checklist">
+                <li><i data-lucide="check" class="check-icon violet"></i> <strong>Unlimited</strong> team members &amp; seats</li>
+                <li><i data-lucide="check" class="check-icon violet"></i> <strong>Unlimited</strong> active projects &amp; sprints</li>
+                <li><i data-lucide="check" class="check-icon violet"></i> Real-time multiplayer collaborative canvas</li>
+                <li><i data-lucide="check" class="check-icon violet"></i> Advanced velocity telemetry &amp; burndowns</li>
+                <li><i data-lucide="check" class="check-icon violet"></i> GitHub, GitLab, Slack &amp; Figma integrations</li>
+                <li><i data-lucide="check" class="check-icon violet"></i> 1-year audit history &amp; data export</li>
+                <li><i data-lucide="check" class="check-icon violet"></i> Priority 24/7 technical support</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Tier 3: Enterprise -->
+          <div class="pricing-card" id="pricing-enterprise">
+            <div class="tier-header">
+              <h3 class="tier-name">Enterprise</h3>
+              <p class="tier-desc">Custom governance, compliance safeguards, and dedicated architectural support.</p>
+            </div>
+
+            <div class="tier-price-box">
+              <div class="price-amount-wrap">
+                <span class="price-val custom-text">Custom</span>
+              </div>
+              <p class="price-subtext">Tailored seat volume &amp; custom SLAs</p>
+            </div>
+
+            <button type="button" class="btn-secondary w-full" id="enterpriseCtaBtn">
+              <span>Contact Sales</span>
+              <i data-lucide="mail" class="icon-inline"></i>
+            </button>
+
+            <div class="tier-features">
+              <div class="features-label">EVERYTHING IN PRO, PLUS:</div>
+              <ul class="tier-checklist">
+                <li><i data-lucide="check" class="check-icon"></i> SAML 2.0 / Okta / Azure AD Single Sign-On</li>
+                <li><i data-lucide="check" class="check-icon"></i> Automated SCIM user provisioning</li>
+                <li><i data-lucide="check" class="check-icon"></i> Dedicated Customer Success Manager</li>
+                <li><i data-lucide="check" class="check-icon"></i> 99.99% uptime SLA guarantee</li>
+                <li><i data-lucide="check" class="check-icon"></i> Custom data residency (US / EU / APAC)</li>
+                <li><i data-lucide="check" class="check-icon"></i> SOC-2 Type II audit packages</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- H. TESTIMONIALS -->
+    <section class="testimonials-section" id="testimonials">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-eyebrow">
+            <i data-lucide="message-square" class="icon-inline"></i>
+            <span>SAMPLE USER SCENARIOS</span>
+          </div>
+          <h2 class="section-title">Crafted for teams that care about craft</h2>
+          <p class="section-subtitle">
+            Read sample scenarios showcasing how modern organizations optimize their execution velocity.
+          </p>
+          <div class="demo-disclaimer-pill">
+            <i data-lucide="info" class="disclaimer-icon"></i>
+            <span>Sample Demonstration Content • Fictional personas illustrating product use cases</span>
+          </div>
+        </div>
+
+        <div class="testimonials-grid">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card">
+            <div class="star-rating">
+              <i data-lucide="star" class="star filled"></i>
+              <i data-lucide="star" class="star filled"></i>
+              <i data-lucide="star" class="star filled"></i>
+              <i data-lucide="star" class="star filled"></i>
+              <i data-lucide="star" class="star filled"></i>
+            </div>
+            <p class="quote-text">
+              "LaunchFlow replaced four fragmented tools for our 45-person engineering team. We cut our weekly syncs in half because everyone has real-time context on sprint velocity."
+            </p>
+            <div class="quotee-info">
+              <div class="quotee-avatar violet">DM</div>
+              <div>
+                <h4 class="quotee-name">Devon Mitchell</h4>
+                <p class="quotee-role">VP of Engineering • Novasphere (Fictional)</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card highlighted">
+            <div class="star-rating">
+              <i data-lucide="star" class="star filled"></i>
+              <i data-lucide="star" class="star filled"></i>
+              <i data-lucide="star" class="star filled"></i>
+              <i data-lucide="star" class="star filled"></i>
+              <i data-lucide="star" class="star filled"></i>
+            </div>
+            <p class="quote-text">
+              "The design precision and keyboard-first navigation make LaunchFlow feel like a native desktop app. Our product managers and engineers actually enjoy updating their tickets now."
+            </p>
+            <div class="quotee-info">
+              <div class="quotee-avatar cyan">KL</div>
+              <div>
+                <h4 class="quotee-name">Katherine Liang</h4>
+                <p class="quotee-role">Head of Product Design • Vertexia (Fictional)</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card">
+            <div class="star-rating">
+              <i data-lucide="star" class="star filled"></i>
+              <i data-lucide="star" class="star filled"></i>
+              <i data-lucide="star" class="star filled"></i>
+              <i data-lucide="star" class="star filled"></i>
+              <i data-lucide="star" class="star filled"></i>
+            </div>
+            <p class="quote-text">
+              "The automated dependency tracking and burn-down insights alerted us to a major API bottleneck two weeks before launch. We shipped on schedule with zero customer friction."
+            </p>
+            <div class="quotee-info">
+              <div class="quotee-avatar emerald">JP</div>
+              <div>
+                <h4 class="quotee-name">Jordan Patel</h4>
+                <p class="quotee-role">Technical Lead • Kinetix Labs (Fictional)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- I. FAQ SECTION -->
+    <section class="faq-section" id="faq">
+      <div class="container max-w-4xl">
+        <div class="section-header text-center">
+          <div class="section-eyebrow">
+            <i data-lucide="help-circle" class="icon-inline"></i>
+            <span>FREQUENTLY ASKED QUESTIONS</span>
+          </div>
+          <h2 class="section-title">Everything you need to know</h2>
+          <p class="section-subtitle">
+            Find quick answers about plans, onboarding, security, and team collaboration.
+          </p>
+        </div>
+
+        <div class="accordion-wrapper" id="faqAccordion">
+          <!-- Q1 -->
+          <div class="accordion-item" data-accordion="item">
+            <button type="button" class="accordion-trigger" aria-expanded="true" aria-controls="faq-ans-1" id="faq-q-1">
+              <span class="accordion-title">How does LaunchFlow differ from traditional project management tools?</span>
+              <i data-lucide="chevron-down" class="accordion-chevron"></i>
+            </button>
+            <div class="accordion-content" id="faq-ans-1" role="region" aria-labelledby="faq-q-1">
+              <div class="accordion-body">
+                LaunchFlow is purpose-built for speed and deep focus. Unlike legacy software cluttered with bloated configuration menus and laggy page loads, LaunchFlow offers instant sub-50ms interactions, real-time multiplayer editing, built-in telemetry charts, and seamless Git sync without requiring third-party plugins.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="accordion-item" data-accordion="item">
+            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-ans-2" id="faq-q-2">
+              <span class="accordion-title">Can I try LaunchFlow without a credit card?</span>
+              <i data-lucide="chevron-down" class="accordion-chevron"></i>
+            </button>
+            <div class="accordion-content" id="faq-ans-2" role="region" aria-labelledby="faq-q-2" hidden>
+              <div class="accordion-body">
+                Yes, absolutely! You can sign up for our Starter plan with zero financial commitment. Furthermore, when you test the Pro features, you receive a full 14-day unrestricted trial with no credit card required at any point during onboarding.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="accordion-item" data-accordion="item">
+            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-ans-3" id="faq-q-3">
+              <span class="accordion-title">How easy is it to change plans or cancel?</span>
+              <i data-lucide="chevron-down" class="accordion-chevron"></i>
+            </button>
+            <div class="accordion-content" id="faq-ans-3" role="region" aria-labelledby="faq-q-3" hidden>
+              <div class="accordion-body">
+                You can upgrade, downgrade, or cancel your subscription at any time with a single click from your Workspace Billing dashboard. If you downgrade, your plan changes take effect at the end of the current billing cycle, and you keep all existing project data intact.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="accordion-item" data-accordion="item">
+            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-ans-4" id="faq-q-4">
+              <span class="accordion-title">What kind of customer support is included?</span>
+              <i data-lucide="chevron-down" class="accordion-chevron"></i>
+            </button>
+            <div class="accordion-content" id="faq-ans-4" role="region" aria-labelledby="faq-q-4" hidden>
+              <div class="accordion-body">
+                All plans include access to our documentation library, setup guides, and community forum. Pro tier customers receive priority email and live chat support with guaranteed responses in under 2 hours. Enterprise tiers receive a dedicated customer success manager and Slack/Teams connect channels.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="accordion-item" data-accordion="item">
+            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-ans-5" id="faq-q-5">
+              <span class="accordion-title">Can we import our existing tasks from other software?</span>
+              <i data-lucide="chevron-down" class="accordion-chevron"></i>
+            </button>
+            <div class="accordion-content" id="faq-ans-5" role="region" aria-labelledby="faq-q-5" hidden>
+              <div class="accordion-body">
+                Yes. LaunchFlow features native one-click importers for Jira, Trello, Asana, Linear, and standard CSV spreadsheets. Labels, assignments, markdown descriptions, and attachments are automatically mapped to your new workspace.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q6 -->
+          <div class="accordion-item" data-accordion="item">
+            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-ans-6" id="faq-q-6">
+              <span class="accordion-title">How secure is our workspace data?</span>
+              <i data-lucide="chevron-down" class="accordion-chevron"></i>
+            </button>
+            <div class="accordion-content" id="faq-ans-6" role="region" aria-labelledby="faq-q-6" hidden>
+              <div class="accordion-body">
+                Security is foundational to LaunchFlow. All customer data is encrypted using AES-256 at rest and TLS 1.3 in transit. We maintain strict role-based access controls, automated daily backups across geo-replicated data centers, and optional custom data residency for enterprise contracts.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- J. FINAL CTA -->
+    <section class="final-cta-section" id="cta">
+      <div class="container">
+        <div class="final-cta-card">
+          <div class="cta-glow-blob" aria-hidden="true"></div>
+          <div class="cta-content">
+            <span class="cta-pill-badge">GET STARTED TODAY</span>
+            <h2 class="cta-heading">Ready to transform the way your team works?</h2>
+            <p class="cta-subheading">
+              Join forward-thinking product teams building with greater velocity and clarity. Start your free trial in less than 60 seconds.
+            </p>
+            <div class="cta-button-row">
+              <button type="button" class="btn-primary btn-lg" id="finalGetStartedBtn">
+                <span>Get Started Free</span>
+                <i data-lucide="arrow-right" class="icon-inline"></i>
+              </button>
+              <button type="button" class="btn-secondary btn-lg" id="finalScheduleDemoBtn">
+                <i data-lucide="calendar" class="icon-inline"></i>
+                <span>Schedule a Demo</span>
+              </button>
+            </div>
+            <div class="cta-micro-trust">
+              <span>✓ No credit card required</span>
+              <span>•</span>
+              <span>14-day free trial</span>
+              <span>•</span>
+              <span>Instant setup</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- K. FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <a href="#" class="brand-logo footer-logo">
+            <div class="logo-icon-box">
+              <svg class="logo-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 19H8L12 12L16 19H22L12 2Z" fill="url(#footer-logo-grad)" />
+                <circle cx="12" cy="7" r="2.5" fill="#ffffff" />
+                <defs>
+                  <linearGradient id="footer-logo-grad" x1="2" y1="2" x2="22" y2="19" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#A78BFA" />
+                    <stop offset="0.5" stop-color="#8B5CF6" />
+                    <stop offset="1" stop-color="#6366F1" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <span class="brand-name">LaunchFlow</span>
+          </a>
+          <p class="footer-desc">
+            The modern project orchestration platform for teams that demand velocity, clarity, and exceptional user experience.
+          </p>
+          <div class="system-status-indicator">
+            <span class="status-pulse-green"></span>
+            <span>All Systems Operational (99.99%)</span>
+          </div>
+        </div>
+
+        <div class="footer-links-grid">
+          <div class="footer-col">
+            <h4 class="footer-col-title">Product</h4>
+            <ul class="footer-nav-list">
+              <li><a href="#features">Smart Tasks</a></li>
+              <li><a href="#feat-collab">Live Collaboration</a></li>
+              <li><a href="#feat-analytics">Telemetry &amp; Velocity</a></li>
+              <li><a href="#showcase">Dashboard Tour</a></li>
+              <li><a href="#pricing">Pricing Plans</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-col-title">Solutions</h4>
+            <ul class="footer-nav-list">
+              <li><a href="#how-it-works">Engineering Teams</a></li>
+              <li><a href="#how-it-works">Product &amp; Design</a></li>
+              <li><a href="#how-it-works">Agile Sprints</a></li>
+              <li><a href="#feat-security">Enterprise Security</a></li>
+              <li><a href="#pricing">Remote Workspaces</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-col-title">Resources</h4>
+            <ul class="footer-nav-list">
+              <li><a href="#faq">Help &amp; Documentation</a></li>
+              <li><a href="#faq">API Reference (Demo)</a></li>
+              <li><a href="#faq">Community Guides</a></li>
+              <li><a href="#faq">Changelog v2.4</a></li>
+              <li><button type="button" class="footer-link-btn" id="footerDemoBtn">Product Video</button></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-col-title">Legal &amp; Privacy</h4>
+            <ul class="footer-nav-list">
+              <li><a href="#privacy" class="demo-legal-trigger" data-legal="privacy">Privacy Policy</a></li>
+              <li><a href="#terms" class="demo-legal-trigger" data-legal="terms">Terms of Service</a></li>
+              <li><a href="#security" class="demo-legal-trigger" data-legal="security">Security Whitepaper</a></li>
+              <li><a href="#cookies" class="demo-legal-trigger" data-legal="cookies">Cookie Preferences</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          <p>© 2026 LaunchFlow Inc. Fictional productivity platform for demonstration purposes.</p>
+          <p class="footer-disclaimer">All brand names, metrics, and testimonials are mock data crafted for layout evaluation.</p>
+        </div>
+
+        <div class="footer-socials">
+          <a href="#" class="social-icon-btn" aria-label="GitHub Repository" title="GitHub">
+            <i data-lucide="github"></i>
+          </a>
+          <a href="#" class="social-icon-btn" aria-label="Twitter Profile" title="Twitter / X">
+            <i data-lucide="twitter"></i>
+          </a>
+          <a href="#" class="social-icon-btn" aria-label="LinkedIn Page" title="LinkedIn">
+            <i data-lucide="linkedin"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= MODALS & OVERLAYS ================= -->
+
+  <!-- 1. SIGNUP & SIGNIN DEMO MODAL -->
+  <div class="modal-backdrop" id="authModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
+    <div class="modal-card">
+      <button type="button" class="modal-close-btn" id="closeAuthModal" aria-label="Close dialog">
+        <i data-lucide="x"></i>
+      </button>
+
+      <div class="modal-header">
+        <div class="logo-icon-box sm">
+          <svg class="logo-svg" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L2 19H8L12 12L16 19H22L12 2Z" fill="url(#modal-logo-grad)" />
+            <defs>
+              <linearGradient id="modal-logo-grad" x1="2" y1="2" x2="22" y2="19" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#A78BFA" />
+                <stop offset="1" stop-color="#8B5CF6" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <h3 class="modal-title" id="authModalTitle">Get Started with LaunchFlow</h3>
+        <p class="modal-sub">Create your fictional workspace in seconds. No credit card required.</p>
+      </div>
+
+      <!-- Modal Tabs -->
+      <div class="modal-tab-switch">
+        <button type="button" class="modal-tab active" id="tabSignupBtn">Create Workspace</button>
+        <button type="button" class="modal-tab" id="tabSigninBtn">Sign In</button>
+      </div>
+
+        <!-- Global Auth Alert Banner -->
+        <div class="auth-alert-box hidden" id="authGlobalAlert">
+          <i data-lucide="info" class="alert-icon"></i>
+          <span id="authAlertText">Alert message</span>
+        </div>
+
+        <div class="form-group" id="groupFullName">
+          <label for="signupName">Full Name</label>
+          <div class="input-wrap">
+            <i data-lucide="user" class="input-icon"></i>
+            <input type="text" id="signupName" placeholder="Alex Rivera" required />
+          </div>
+          <span class="field-error" id="nameError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="signupEmail">Work Email</label>
+          <div class="input-wrap">
+            <i data-lucide="mail" class="input-icon"></i>
+            <input type="email" id="signupEmail" placeholder="alex@company.com" required />
+          </div>
+          <span class="field-error" id="emailError"></span>
+        </div>
+
+        <div class="form-group" id="groupWorkspace">
+          <label for="signupWorkspace">Workspace Name</label>
+          <div class="input-wrap">
+            <i data-lucide="briefcase" class="input-icon"></i>
+            <input type="text" id="signupWorkspace" placeholder="Acme Engineering" required />
+          </div>
+          <span class="field-error" id="workspaceError"></span>
+        </div>
+
+        <div class="form-group" id="groupPassword">
+          <div class="label-row-flex">
+            <label for="signupPassword">Password</label>
+            <button type="button" class="btn-link-sm hidden" id="forgotPasswordBtn">Forgot password?</button>
+          </div>
+          <div class="input-wrap">
+            <i data-lucide="lock" class="input-icon"></i>
+            <input type="password" id="signupPassword" placeholder="Minimum 8 characters" required />
+          </div>
+          <span class="field-error" id="passwordError"></span>
+        </div>
+
+        <button type="submit" class="btn-primary w-full" id="submitAuthBtn">
+          <span id="authBtnText">Create Free Workspace</span>
+          <i data-lucide="arrow-right" class="icon-inline"></i>
+        </button>
+
+        <!-- Backend live connectivity notice -->
+        <div class="demo-notice-box">
+          <i data-lucide="database" class="demo-notice-icon"></i>
+          <span>Connected to Supabase Cloud Authentication. Sessions and credentials authenticate securely against PostgreSQL.</span>
+        </div>
+      </form>
+
+      <!-- Password Recovery View -->
+      <div class="password-reset-view hidden" id="passwordResetView">
+        <h4 class="reset-title">Reset Your Password</h4>
+        <p class="reset-sub">Enter your email and we'll send you a password recovery link.</p>
+        <div class="form-group">
+          <label for="resetEmail">Email Address</label>
+          <div class="input-wrap">
+            <i data-lucide="mail" class="input-icon"></i>
+            <input type="email" id="resetEmail" placeholder="name@company.com" />
+          </div>
+          <span class="field-error" id="resetError"></span>
+        </div>
+        <button type="button" class="btn-primary w-full" id="sendResetBtn">Send Recovery Link</button>
+        <button type="button" class="btn-ghost w-full mt-2" id="backToSignInBtn">Back to Sign In</button>
+      </div>
+
+      <!-- Success confirmation state (hidden by default) -->
+      <div class="auth-success-state hidden" id="authSuccessState">
+        <div class="success-icon-ring">
+          <i data-lucide="check" class="success-check-icon"></i>
+        </div>
+        <h4 class="success-title">Workspace Ready!</h4>
+        <p class="success-desc" id="successWorkspaceMsg">
+          Welcome aboard! Your sample workspace has been created for demonstration.
+        </p>
+        <button type="button" class="btn-primary w-full" id="finishAuthBtn">
+          <span>Enter Workspace</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1B. NEW TASK CREATION MODAL -->
+  <div class="modal-backdrop" id="taskModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="taskModalTitle">
+    <div class="modal-card">
+      <button type="button" class="modal-close-btn" id="closeTaskModal" aria-label="Close dialog">
+        <i data-lucide="x"></i>
+      </button>
+
+      <div class="modal-header">
+        <div class="tier-badge popular">SPRINT BACKLOG</div>
+        <h3 class="modal-title" id="taskModalTitle">Create New Sprint Task</h3>
+        <p class="modal-sub">Add a deliverable to your active project workspace in Supabase.</p>
+      </div>
+
+      <form class="modal-form" id="createTaskForm" novalidate>
+        <div class="form-group">
+          <label for="taskInputTitle">Task Title</label>
+          <div class="input-wrap">
+            <i data-lucide="check-square" class="input-icon"></i>
+            <input type="text" id="taskInputTitle" placeholder="e.g. Implement Webhook retry exponential backoff" required />
+          </div>
+          <span class="field-error" id="taskTitleError"></span>
+        </div>
+
+        <div class="form-row-2col">
+          <div class="form-group">
+            <label for="taskInputCategory">Category / Component</label>
+            <div class="input-wrap">
+              <i data-lucide="layers" class="input-icon"></i>
+              <select id="taskInputCategory">
+                <option value="Backend">Backend</option>
+                <option value="Frontend">Frontend</option>
+                <option value="Infrastructure">Infrastructure</option>
+                <option value="Security">Security</option>
+                <option value="Design System">Design System</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="taskInputPriority">Priority</label>
+            <div class="input-wrap">
+              <i data-lucide="flag" class="input-icon"></i>
+              <select id="taskInputPriority">
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+                <option value="urgent">Urgent (P0)</option>
+                <option value="low">Low</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="taskInputAssignee">Assignee Name</label>
+          <div class="input-wrap">
+            <i data-lucide="user" class="input-icon"></i>
+            <input type="text" id="taskInputAssignee" placeholder="e.g. Sarah Chen" />
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary w-full" id="submitCreateTaskBtn">
+          <span>Add Task to Sprint</span>
+          <i data-lucide="plus" class="icon-inline"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 2. WATCH DEMO MODAL -->
+  <div class="modal-backdrop" id="demoVideoModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="demoModalTitle">
+    <div class="modal-card modal-card-lg">
+      <button type="button" class="modal-close-btn" id="closeDemoModal" aria-label="Close demo player">
+        <i data-lucide="x"></i>
+      </button>
+
+      <div class="modal-header">
+        <div class="demo-badge">PRODUCT PREVIEW</div>
+        <h3 class="modal-title" id="demoModalTitle">LaunchFlow 2.4 Interactive Walkthrough</h3>
+        <p class="modal-sub">Explore key workflows in our simulated high-definition product preview.</p>
+      </div>
+
+      <!-- Simulated Video Player Interface -->
+      <div class="demo-player-container">
+        <div class="player-screen" id="demoPlayerScreen">
+          <!-- Screen state 1: Hero preview -->
+          <div class="player-visual-slide active" data-slide="1">
+            <div class="slide-overlay">
+              <div class="slide-badge">Chapter 1: The Unified Board</div>
+              <h3>Automate Task Prioritization and Eliminate Blockers</h3>
+              <p>Watch how tickets automatically surface based on sprint urgency and dependency trees.</p>
+            </div>
+            <div class="simulated-ui-visual">
+              <div class="sim-card">
+                <span class="sim-pill purple">In Progress</span>
+                <p>Deploy Distributed Cache Engine</p>
+                <div class="sim-prog"><div class="sim-fill" style="width: 75%"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video controls overlay -->
+          <div class="player-controls">
+            <button type="button" class="player-btn-play" id="playerPlayToggle" aria-label="Play/Pause demonstration">
+              <i data-lucide="play" id="playerPlayIcon"></i>
+              <i data-lucide="pause" id="playerPauseIcon" class="hidden"></i>
+            </button>
+            <div class="player-scrub-bar" id="playerScrubBar">
+              <div class="scrub-fill" id="playerScrubFill" style="width: 25%;"></div>
+            </div>
+            <span class="player-time" id="playerTimeDisplay">00:42 / 02:45</span>
+          </div>
+        </div>
+
+        <!-- Video Chapters Navigation -->
+        <div class="demo-chapters-list">
+          <div class="chapter-item active" data-chapter="1">
+            <span class="chap-num">01</span>
+            <div class="chap-info">
+              <strong>Workspace Setup</strong>
+              <span>0:00 - 0:45</span>
+            </div>
+          </div>
+          <div class="chapter-item" data-chapter="2">
+            <span class="chap-num">02</span>
+            <div class="chap-info">
+              <strong>Sprint &amp; Task Telemetry</strong>
+              <span>0:45 - 1:30</span>
+            </div>
+          </div>
+          <div class="chapter-item" data-chapter="3">
+            <span class="chap-num">03</span>
+            <div class="chap-info">
+              <strong>Multiplayer Collaboration</strong>
+              <span>1:30 - 2:15</span>
+            </div>
+          </div>
+          <div class="chapter-item" data-chapter="4">
+            <span class="chap-num">04</span>
+            <div class="chap-info">
+              <strong>Executive Velocity Summaries</strong>
+              <span>2:15 - 2:45</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-modal-footer">
+        <button type="button" class="btn-primary" id="demoModalStartTrialBtn">
+          <span>Start Free Trial Now</span>
+          <i data-lucide="arrow-right" class="icon-inline"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. CONTACT SALES MODAL -->
+  <div class="modal-backdrop" id="contactModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
+    <div class="modal-card">
+      <button type="button" class="modal-close-btn" id="closeContactModal" aria-label="Close dialog">
+        <i data-lucide="x"></i>
+      </button>
+
+      <div class="modal-header">
+        <div class="tier-badge enterprise">ENTERPRISE SOLUTIONS</div>
+        <h3 class="modal-title" id="contactModalTitle">Connect with Enterprise Advisory</h3>
+        <p class="modal-sub">Learn how LaunchFlow scales across hundreds of engineers with custom SLAs and SSO.</p>
+      </div>
+
+      <form class="modal-form" id="contactSalesForm" novalidate>
+        <div class="form-group">
+          <label for="contactName">Full Name</label>
+          <div class="input-wrap">
+            <i data-lucide="user" class="input-icon"></i>
+            <input type="text" id="contactName" placeholder="Jordan Vance" required />
+          </div>
+          <span class="field-error" id="contactNameError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="contactEmail">Work Email</label>
+          <div class="input-wrap">
+            <i data-lucide="mail" class="input-icon"></i>
+            <input type="email" id="contactEmail" placeholder="jordan@enterprise.com" required />
+          </div>
+          <span class="field-error" id="contactEmailError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="companySize">Estimated Team Size</label>
+          <div class="input-wrap">
+            <i data-lucide="users" class="input-icon"></i>
+            <select id="companySize" required>
+              <option value="">Select team size...</option>
+              <option value="20-50">20 - 50 team members</option>
+              <option value="51-200">51 - 200 team members</option>
+              <option value="201-1000">201 - 1,000 team members</option>
+              <option value="1000+">1,000+ enterprise seats</option>
+            </select>
+          </div>
+          <span class="field-error" id="contactSizeError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="contactMessage">Primary Objectives / Requirements</label>
+          <div class="input-wrap">
+            <textarea id="contactMessage" rows="3" placeholder="Tell us about your team's migration requirements or custom SLA needs..." required></textarea>
+          </div>
+          <span class="field-error" id="contactMessageError"></span>
+        </div>
+
+        <button type="submit" class="btn-primary w-full" id="submitContactBtn">
+          <span>Submit Enterprise Inquiry</span>
+          <i data-lucide="arrow-right" class="icon-inline"></i>
+        </button>
+
+        <div class="demo-notice-box">
+          <i data-lucide="shield-check" class="demo-notice-icon"></i>
+          <span>Demonstration inquiry form. Validates input and provides immediate feedback.</span>
+        </div>
+      </form>
+
+      <div class="auth-success-state hidden" id="contactSuccessState">
+        <div class="success-icon-ring">
+          <i data-lucide="check" class="success-check-icon"></i>
+        </div>
+        <h4 class="success-title">Inquiry Received!</h4>
+        <p class="success-desc">
+          Thank you for exploring LaunchFlow Enterprise. This demonstration submission was received successfully.
+        </p>
+        <button type="button" class="btn-secondary w-full" id="closeContactSuccessBtn">
+          <span>Close Window</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
